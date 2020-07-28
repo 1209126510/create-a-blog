@@ -1,11 +1,14 @@
-{% extends "bootstrap/base.html"  %}
+{% extends "_navbar.html"  %}
+
+
 {%- block head %}
     <title>主页</title>
      {%- block styles %}
-    <!-- Bootstrap -->
-    <link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
-        <!-- Bootstrap core CSS -->
+     {{super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='mycss.css') }}">
+<!-- 自定义的css -->
     {%- endblock styles %}
+
 {%- endblock head %}
 {% block body -%}
     {% block navbar %}
@@ -38,4 +41,16 @@
         </div>
     </div>
     {%- endblock navbar %}
+    {% block content -%}
+    <div align="center" style="font-family: 'Times New Roman', Times, serif; ">
+        <h1>Welcome!,{{name}}</h1> 
+    </div>
+    <div style="padding: 100px 100px 10px;" align="center">
+        <form class="bs-example bs-example-form" role="form">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Enter here to search">
+                <span class="input-group-addon">Search</span>
+
+            </div>
+     {%- endblock content %}
 {%- endblock body %}
